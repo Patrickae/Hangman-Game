@@ -45,7 +45,8 @@ document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
 
 }
 
-function restartgame() {
+
+document.getElementById("Reset").onclick=function restartGame() {
 	 wins = 0;
 	 losses = 0;
 	 lives= 8;
@@ -55,10 +56,15 @@ function restartgame() {
 	 userGuess;
 	 blanksAndSuccesses = [];
 	startGame();
+document.getElementById("Lives").innerHTML = lives;
+document.getElementById("Wins").innerHTML = wins;
+document.getElementById("Losses").innerHTML = losses;
+document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
 }
 
 
-function gamelost() {
+function gameLost() {
 	lives= 8;
 	losses++;
  	incorrectGuess = [];
@@ -70,7 +76,7 @@ function gamelost() {
 }
 
 
-function gamewon(){
+function gameWon(){
 		lives= 8;
 		wins++;
 	 	incorrectGuess = [];
@@ -95,6 +101,7 @@ document.onkeyup = function(event){
 
 
 	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+
 	userGuess = event.key.toLowerCase();
 
 	for (i=0; i < lettersInUse.length; i++){
@@ -107,6 +114,7 @@ document.onkeyup = function(event){
 
 
 	}
+
 	console.log(blanksAndSuccesses);
 
 
@@ -121,14 +129,16 @@ document.onkeyup = function(event){
 
 	if ( lives < 1) {
 
-		alert(wordInUse);
-		gamelost();
+		alert("Sorry, the answer was " + wordInUse.toUpperCase());
+		gameLost();
 	}
 
 	if ( blanksAndSuccesses.indexOf("_") == "-1"){
-		gamewon();
+		gameWon();
 	}
 }
+
+
 
 	
 
