@@ -50,24 +50,26 @@ startGame();
 console.log(lettersInUse);
 
 console.log(blanksAndSuccesses);
-document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");	
+	
 
 	
 
 document.onkeyup = function(event){
 
-	userGuess = event.key;
+	userGuess = event.key.toLowerCase();
 
 	for (i=0; i < lettersInUse.length; i++){
 
 		if ( userGuess === lettersInUse[i] ) {
 
-			document.getElementById("Correct-Guesses").innerHTML = userGuess;
-			console.log(userGuess);
+			blanksAndSuccesses.splice(i, 1, userGuess);
 	}
 
 
 	}
+	console.log(blanksAndSuccesses);
+	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+
 }
 
 	
