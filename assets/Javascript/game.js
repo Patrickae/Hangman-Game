@@ -14,6 +14,7 @@ var blanksAndSuccesses = [];
 
 
 
+
 //set wins and losses to 0, lives to 8, make incorrect letters an empty array
 // game starts when page loads
 
@@ -36,14 +37,50 @@ function startGame(){
 	 }
 	 console.log(blanksAndSuccesses);
 	console.log(lettersInUse);
-
+document.getElementById("Lives").innerHTML = lives;
+document.getElementById("Wins").innerHTML = wins;
+document.getElementById("Losses").innerHTML = losses;
+document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
 
 }
 
+function restartgame() {
+	 wins = 0;
+	 losses = 0;
+	 lives= 8;
+	 incorrectGuess = [];
+	 lettersInUse=[];
+	 wordInUse;
+	 userGuess;
+	 blanksAndSuccesses = [];
+	startGame();
+}
 
 
+function gamelost() {
+	lives= 8;
+	losses++;
+ 	incorrectGuess = [];
+	 lettersInUse=[];
+	 wordInUse;
+	 userGuess;
+	 blanksAndSuccesses = [];
+	startGame();
+}
 
 
+function gamewon(){
+		lives= 8;
+		wins++;
+	 	incorrectGuess = [];
+		 lettersInUse=[];
+		 wordInUse;
+		 userGuess;
+		 blanksAndSuccesses = [];
+		 startGame();
+
+}
 //display the wordInUse elements on the screen, but replace the letters with underscores
 startGame();
 
@@ -56,6 +93,8 @@ console.log(blanksAndSuccesses);
 
 document.onkeyup = function(event){
 
+
+	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
 	userGuess = event.key.toLowerCase();
 
 	for (i=0; i < lettersInUse.length; i++){
@@ -63,13 +102,32 @@ document.onkeyup = function(event){
 		if ( userGuess === lettersInUse[i] ) {
 
 			blanksAndSuccesses.splice(i, 1, userGuess);
-	}
+			document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+		}
 
 
 	}
 	console.log(blanksAndSuccesses);
-	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
 
+
+	if ( lettersInUse.indexOf(userGuess) == "-1"){
+		incorrectGuess.push(userGuess);
+		lives--;
+	};
+
+	console.log(userGuess);
+	document.getElementById("Lives").innerHTML = lives;
+	document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
+
+	if ( lives < 1) {
+
+		alert(wordInUse);
+		gamelost();
+	}
+
+	if ( blanksAndSuccesses.indexOf("_") == "-1"){
+		gamewon();
+	}
 }
 
 	
@@ -88,6 +146,4 @@ document.onkeyup = function(event){
 
 //when all elements in the wordInUse have been correctly guessed, add one wins and restart game with new selection from possibleWords
 
-document.getElementById("Lives").innerHTML = lives;
-document.getElementById("Wins").innerHTML = wins;
-document.getElementById("Losses").innerHTML = losses ;
+
