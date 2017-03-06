@@ -1,0 +1,36 @@
+
+body  { background-color: #DBD3D8; }
+
+.jumbotron {background-image: url("../images/rocks.jpg");
+		background-size: cover;
+		color:#ffffff;
+		border-bottom: 5px solid #223843;
+		font-family: "Alegreya SC";
+	}
+
+	
+#Content { background-color: #EFF1F3;
+			border: 1px solid #223843;
+			border-radius: 10px;
+			font-family: 'Oswald', sans-serif;
+			font-weight: 200;
+			font-size: 20px;
+ }
+
+#Clue-Title { font-family: "Alegreya SC";
+				font-size: 30px; }
+
+ #Clue-Div{ margin: 0px 0 50px 0; 
+ 			font-weight:400;}
+
+ #Word-Div{ margin: 10px 0; 
+ 			font-size:30px;
+ 			font-weight: 400;}
+
+ #Guesses-Div{ margin: 10px 0; }
+
+ #Lives-Div{ margin: 10px 0; }
+
+ #Win-Loss-Div{ margin: 10px 0; }
+
+ #Button-Div { margin: 10px 0; }
