@@ -1,15 +1,32 @@
 
-body  { background-color: #DBD3D8; }
+body  { 
 
-.jumbotron {background-image: url("../images/rocks.jpg");
-		background-size: cover;
+
+	background-image: url("../images/fishing.jpg");
+		background-size: cover;	
+		height: 800px;
+
+	/*background-color: #DBD3D8;*/
+
+
+}
+
+.jumbotron {
+	background-color:#223843;
+	
+		
 		color:#ffffff;
-		border-bottom: 5px solid #223843;
+		border-bottom: 5px solid #D77A61;
 		font-family: "Alegreya SC";
 	}
 
-	
+hr{
+	border-color: #D77A61;
+}
+
+
 #Content { background-color: #EFF1F3;
+			/*opacity: 0.9;*/
 			border: 1px solid #223843;
 			border-radius: 10px;
 			font-family: 'Oswald', sans-serif;
@@ -18,14 +35,17 @@ body  { background-color: #DBD3D8; }
  }
 
 #Clue-Title { font-family: "Alegreya SC";
-				font-size: 30px; }
+				font-size: 30px; 
+				font}
 
  #Clue-Div{ margin: 0px 0 50px 0; 
- 			font-weight:400;}
+ 			font-weight:200;
+ 			}
 
- #Word-Div{ margin: 10px 0; 
+ #Word-Div { margin: 10px 0; 
  			font-size:30px;
- 			font-weight: 400;}
+ 			font-family: "Alegreya SC";
+ 			}
 
  #Guesses-Div{ margin: 10px 0; }
 
@@ -33,4 +53,11 @@ body  { background-color: #DBD3D8; }
 
  #Win-Loss-Div{ margin: 10px 0; }
 
- #Button-Div { margin: 10px 0; }
+ #Button-Div { margin: 10px 0; 	}
+
+
+
+
+
+
+

@@ -1,14 +1,28 @@
 //create array of words- possibleWords
 
-var possibleWords = ["bigeye chub", "american paddlefish", "black crappie", "broadstripe shiner", "chologaster cornuta", "clearnose skate", "giant oarfish"];
+var possibleWords = ["bigeye chub", "american paddlefish", "black crappie", "broadstripe shiner", "chologaster cornuta", "clearnose skate", "giant oarfish", "leapard shark", "ninespine stickleback", "ocean pout", "pacific jack mackerel", "sockeye salmon", "starry flounder", "tennessee dace", "brook trout", "rainbow trout", "alabama hog sucker", "choctaw bass", "toothless blindcat", "death valley pupfish", "apache trout"];
 
-var clues = [ "The native range of this fish includes the Lake Ontario and Lake Erie drainages in New York, Pennsylvania, Ohio, and Michigan as well as the Ohio River basin from New York to eastern Illinois and south to the Tennessee River drainage, Georgia and Alabama, and the Ozarks of southern Missouri, northern Arkansas, and northeastern Oklahoma.",
+var clues = [ "This fish is highly intolerant of murky waters and silt covered bottoms. As a result of these habitat preferences they are an indicator of good water quality.",
  "Fossil records of this fish date back over 300 million years, nearly 50 million years before dinosaurs first appeared.",
  "This is a very popular sport fish, as it is easy to catch during their feeding times. It is also very tasty, despite its name.",
  "This is a species of cyprinid fish endemic to the Chattahoochee River drainage in the states of Georgia and Alabama. The average length is about 7 centimeters, or 2 inches.",
  "Commonly named swampfish, ricefish, or riceditch killifish, it is a freshwater fish of the family Amblyopsidae. It is the only living species of its titular genus.",
  "This is a species of cartilaginous fish. It is easily identified by the translucent patches on either side of its snout",
- "This is the world's longest bony fish. Its physical characteristics and its undulating mode of swimming have led to speculation that it might be the source of many 'sea serpent' sightings."]
+ "This is the world's longest bony fish. Its physical characteristics and its undulating mode of swimming have led to speculation that it might be the source of many 'sea serpent' sightings.",
+ "This 'fish' is immediately identifiable by the striking pattern of black saddle-like markings and large spots over its back, from which it derives its common name.",
+ "Despite its name, the number of spines can vary from 8 to 12.",
+ "The fish has antifreeze proteins in its blood, giving it the ability to survive in near-freezing waters.",
+ "is considered safer to consume than tuna because it is a smaller fish, and not a top predator, thus avoiding accumulation of heavy metals such as mercury.",
+ "This fish is primarily red in hue during spawning.",
+ "A common flatfish found around the margins of the North Pacific. Features include the combination of black and white-to-orange bar on the dorsal and anal fins",
+ "This is a species of ray-finned fish found only in the United States; particularly in northeast Tennessee and southwest Virginia.",
+ "It is native to Eastern North America in the United States and Canada. Also knows as a Squaretail",
+ "Wild-caught and hatchery-reared forms of this species have been transplanted and introduced for food or sport in at least 45 countries and every continent except Antarctica",
+ "The fish lives in the Chattahoochee River and Mobile Bay drainages and nearby creeks. The species was named for the Etowah River of Georgia",
+ "The name comes from the Native American tribe which used to occupy the area in which the new species was found.",
+ "This fish has no pigmentation and no externally visible eyes. It is only found in five artesian wells penetrating the San Antonio Pool of the Edwards Aquifer in and near San Antonio",
+ "It is endemic to two small, isolated locations in a southwestern national park, and it is currently classified as endangered.",
+ "This is the state fish of Arizona. This fish is a yellowish-gold color with a golden belly and have medium-sized dark spots that are evenly spaced"];
 //create variable for wins, losses, lives, and incorrect letters to be displayed
 var wins = 0;
 var losses = 0;
@@ -34,6 +48,7 @@ function startGame(){
 
 	clueInUse = clues[possibleWords.indexOf(wordInUse)];
 
+	blanksAndSuccesses = [];
 
 	console.log(clueInUse);
 	console.log(wordInUse);
@@ -105,7 +120,7 @@ function gameWon(){
 		 wordInUse;
 		 clueInUse;
 		 userGuess;
-		 blanksAndSuccesses = [];
+		 
 		 startGame();
 
 }
@@ -156,7 +171,7 @@ document.onkeyup = function(event){
 	}
 
 	if ( blanksAndSuccesses.indexOf("_") == "-1"){
-		document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+		document.getElementById("Word").innerHTML = lettersInUse.join(" ");
 		alert("You got it! The answer is the " + wordInUse.toUpperCase());
 		gameWon();
 	}
