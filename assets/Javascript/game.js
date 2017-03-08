@@ -1,6 +1,6 @@
 //create array of words- possibleWords
 
-var possibleWords = ["bigeye chub", "american paddlefish", "black crappie", "broadstripe shiner", "chologaster cornuta", "clearnose skate", "giant oarfish", "leapard shark", "ninespine stickleback", "ocean pout", "pacific jack mackerel", "sockeye salmon", "starry flounder", "tennessee dace", "brook trout", "rainbow trout", "alabama hog sucker", "choctaw bass", "toothless blindcat", "death valley pupfish", "apache trout"];
+var possibleWords = ["bigeye chub", "american paddlefish", "black crappie", "broadstripe shiner", "chologaster cornuta", "clearnose skate", "giant oarfish", "leopard shark", "ninespine stickleback", "ocean pout", "pacific jack mackerel", "sockeye salmon", "starry flounder", "tennessee dace", "brook trout", "rainbow trout", "alabama hog sucker", "choctaw bass", "toothless blindcat", "death valley pupfish", "apache trout"];
 
 var clues = [ "This fish is highly intolerant of murky waters and silt covered bottoms. As a result of these habitat preferences they are an indicator of good water quality.",
  "Fossil records of this fish date back over 300 million years, nearly 50 million years before dinosaurs first appeared.",
@@ -33,16 +33,13 @@ var wordInUse;
 var userGuess;
 var blanksAndSuccesses = [];
 var clueInUse;
-
-
-
-//set wins and losses to 0, lives to 8, make incorrect letters an empty array
-// game starts when page loads
+var wordsUsed = [];
 
 
 
 
-function startGame(){
+
+ function startGame(){
 //choose an element out of the possibleWords array (wordInUse)
 	wordInUse = possibleWords[Math.floor(Math.random() * possibleWords.length)];
 
@@ -90,6 +87,7 @@ document.getElementById("Reset").onclick=function restartGame() {
 	 clueInUse;
 	 userGuess;
 	 blanksAndSuccesses = [];
+	 wordsUsed = [];
 	startGame();
 document.getElementById("Lives").innerHTML = lives;
 document.getElementById("Wins").innerHTML = wins;
@@ -132,9 +130,10 @@ console.log(lettersInUse);
 console.log(blanksAndSuccesses);
 	
 
-	
 
 document.onkeyup = function(event){
+
+	
 
 
 	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
