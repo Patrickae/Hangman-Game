@@ -39,44 +39,6 @@ var wordsUsed = [];
 
 
 
- function startGame(){
-//choose an element out of the possibleWords array (wordInUse)
-	wordInUse = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-
-	clueInUse = clues[possibleWords.indexOf(wordInUse)];
-
-	blanksAndSuccesses = [];
-
-	console.log(clueInUse);
-	console.log(wordInUse);
-//break that wordInUse up into its individual letters
-
-	lettersInUse = wordInUse.split("");
-
-//create a string with underscores replacing the letters in lettersInUse	
-
-	 for (i=0; i< lettersInUse.length; i++){
-	 	if(lettersInUse[i] != " "){
-	 	blanksAndSuccesses.push("_");
-	 }
-	 else{
-	 	blanksAndSuccesses.push("-");
-	 }
-	 }
-
-
-	 console.log(blanksAndSuccesses);
-	console.log(lettersInUse);
-document.getElementById("Clues").innerHTML = clueInUse;
-document.getElementById("Lives").innerHTML = lives;
-document.getElementById("Wins").innerHTML = wins;
-document.getElementById("Losses").innerHTML = losses;
-document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
-document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
-
-}
-
-
 document.getElementById("Reset").onclick=function restartGame() {
 	 wins = 0;
 	 losses = 0;
@@ -89,12 +51,80 @@ document.getElementById("Reset").onclick=function restartGame() {
 	 blanksAndSuccesses = [];
 	 wordsUsed = [];
 	startGame();
-document.getElementById("Lives").innerHTML = lives;
-document.getElementById("Wins").innerHTML = wins;
-document.getElementById("Losses").innerHTML = losses;
-document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
-document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
+	document.getElementById("Lives").innerHTML = lives;
+	document.getElementById("Wins").innerHTML = wins;
+	document.getElementById("Losses").innerHTML = losses;
+	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+	document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
 }
+
+
+	
+
+ function startGame(){
+//choose an element out of the possibleWords array (wordInUse)
+	wordInUse = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+
+	
+
+	blanksAndSuccesses = [];
+
+	lettersInUse = wordInUse.split("");
+
+
+	 for (i=0; i< lettersInUse.length; i++){
+	 	if(lettersInUse[i] != " "){
+	 	blanksAndSuccesses.push("_");
+	 }
+	 else{
+	 	blanksAndSuccesses.push("-");
+	 }
+	 }
+
+
+
+
+//increase the chance of a new word being used
+	 for (i=0 ; i < 200 ;  i++){
+	 	if (wordsUsed.indexOf(wordInUse) != -1){
+
+	 	wordInUse = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+	 };
+	};
+
+
+
+
+
+
+	 if (wordsUsed.indexOf(wordInUse) == -1){
+
+	 	wordsUsed.push(wordInUse);
+	 }
+
+
+	 if ( wordsUsed.length == possibleWords.length){
+	 	alert("You have made it through every option! your score is - Wins: " + wins + " , Losses: " + losses);
+	 	restartGame();
+	 }
+
+
+
+	 clueInUse = clues[possibleWords.indexOf(wordInUse)];
+
+	//  console.log(blanksAndSuccesses);
+	// console.log(lettersInUse);
+	document.getElementById("Clues").innerHTML = clueInUse;
+	document.getElementById("Lives").innerHTML = lives;
+	document.getElementById("Wins").innerHTML = wins;
+	document.getElementById("Losses").innerHTML = losses;
+	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
+	document.getElementById("Guesses").innerHTML = incorrectGuess.join(" ");
+
+}
+
+
+
 
 
 function gameLost() {
@@ -122,18 +152,25 @@ function gameWon(){
 		 startGame();
 
 }
-//display the wordInUse elements on the screen, but replace the letters with underscores
+
+
+
 startGame();
 
-console.log(lettersInUse);
+// console.log(lettersInUse);
 
-console.log(blanksAndSuccesses);
-	
+// console.log(blanksAndSuccesses);
+
 
 
 document.onkeyup = function(event){
 
 	
+
+
+	console.log(wordsUsed);
+
+
 
 
 	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
@@ -150,6 +187,10 @@ document.onkeyup = function(event){
 
 
 	}
+
+
+
+
 
 	console.log(blanksAndSuccesses);
 
@@ -174,6 +215,9 @@ document.onkeyup = function(event){
 		alert("You got it! The answer is the " + wordInUse.toUpperCase());
 		gameWon();
 	}
+
+
+
 }
 
 
