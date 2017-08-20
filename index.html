@@ -2,86 +2,94 @@
 <html>
 <head>
 
-<link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Oswald:200,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Oswald:200,400" rel="stylesheet">
 
 	<title>Hangman</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- font awesome cdn -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
 
 
-<div class="jumbotron text-center">
+	<div class="jumbotron text-center">
 
-	  <h1>Fish of North America</h1>
-	  <p> Guess the fish using the clue provided</p>
-</div>
-	 
-
-<div id="container">
-
-	<div class="row">
-	<div class="col-md-2"></div>
-
-		<div class="col-md-8" id="Content">
+		<h1>Fish of North America</h1>
+		<p> Guess the fish using the clue provided</p>
+		<br/>
+		<a href="https://github.com/Patrickae/Hangman-Game" target="_blank">
+			<i class="fa fa-github fa-3x"></i>
+		</a>
+	</div>
 
 
-			<div class="row text-center" id="Clue-Div">
-				<div class="col-md-2"></div>
+	<div id="container">
+
+		<div class="row">
+			<div class="col-md-2"></div>
+
+			<div class="col-md-8" id="Content">
+
+
+				<div class="row text-center" id="Clue-Div">
+					<div class="col-md-2"></div>
 					<div class="col-md-8">
-					<h4 id="Clue-Title">Clue:</h4><hr> 
+						<h4 id="Clue-Title">Clue:</h4><hr> 
 						<p><span id="Clues"></span></p>
 					</div>
-				<div class="col-md-2"></div>
-			</div>
-			<div class="row text-center" id="Word-Div">
-				<div class="col-md-2"></div>
+					<div class="col-md-2"></div>
+				</div>
+				<div class="row text-center" id="Word-Div">
+					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<p><span id="Word"></span></p><hr>
 					</div>
-				<div class="col-md-2"></div>
-			</div>
-			<div class="row" id="Guesses-Div">
-				<div class="col-md-3"></div>
+					<div class="col-md-2"></div>
+				</div>
+				<div class="row" id="Guesses-Div">
+					<div class="col-md-3"></div>
 					<div class="col-md-4">
 						<p>Letters Guessed: <span id="Guesses"></span></p>
 					</div>
 					<div class="col-md-4">
 						<p>Chances: <span id="Lives"></span></p>
 					</div>
-				<div class="col-md-1"></div>
-			</div>
+					<div class="col-md-1"></div>
+				</div>
 
-			<div class="row text-center" id="Win-Loss-Div">
-				<div class="col-md-3"></div>
+				<div class="row text-center" id="Win-Loss-Div">
+					<div class="col-md-3"></div>
 					<div class="col-md-3">
 						<p>Wins: <span id="Wins"></span></p>
 					</div>
 					<div class="col-md-3">
 						<p>Losses: <span id="Losses"></span></p>
 					</div>
-				<div class="col-md-3"></div>
-			</div>
-			<div class="row text-center" id="Button-Div">
-				<div class="col-md-5"></div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row text-center" id="Button-Div">
+					<div class="col-md-5"></div>
 					<div class="col-md-2">
 						<button class="btn btn-primary btn-lg" id="Reset">Reset</button>
 					</div>
-				<div class="col-md-5"></div>
+					<div class="col-md-5"></div>
+				</div>
+
+
 			</div>
 
-
+			<div class="col-md-2"></div>
 		</div>
 
-	<div class="col-md-2"></div>
 	</div>
-</div>
 
-<script type="text/javascript" src="assets/Javascript/game.js"></script>
+	<script type="text/javascript" src="assets/Javascript/game.js"></script>
 
 
 

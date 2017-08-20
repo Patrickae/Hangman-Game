@@ -35,6 +35,9 @@ var blanksAndSuccesses = [];
 var clueInUse;
 var wordsUsed = [];
 
+var birthDay = new Date(1990, 5, 1);
+
+console.log( birthDay.getDay() );
 
 
 
@@ -154,7 +157,6 @@ function gameWon(){
 }
 
 
-
 startGame();
 
 // console.log(lettersInUse);
@@ -165,17 +167,16 @@ startGame();
 
 document.onkeyup = function(event){
 
-	
-
 
 	console.log(wordsUsed);
-
-
 
 
 	document.getElementById("Word").innerHTML = blanksAndSuccesses.join(" ");
 
 	userGuess = event.key.toLowerCase();
+
+
+	console.log(userGuess);
 
 	for (i=0; i < lettersInUse.length; i++){
 
